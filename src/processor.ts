@@ -9,12 +9,16 @@ function getPoolName(prefix: string, types: string[]): string {
 
 stable_pool.bind()
   .onEventAddLiquidityEvent(async (event, ctx) => {
-    ctx.meter.Counter('lp_coint')
-        .add(event.data_decoded.minted_lp_coin_amount, { pool: getPoolName("stable", event.type_arguments) })
+    ctx.eventLogger.emit('add_liquidity', {
+      pool: getPoolName("stable", event.type_arguments),
+      ...event.data_decoded
+    })
   })
 .onEventRemoveLiquidityEvent(async (event, ctx) => {
-    ctx.meter.Counter('lp_coint')
-        .sub(event.data_decoded.burned_lp_coin_amount, { pool: getPoolName("stable", event.type_arguments) })
+    ctx.eventLogger.emit('remove_liquidity', {
+      pool: getPoolName("stable", event.type_arguments),
+      ...event.data
+    })
   })
 
 account.bind({network: AptosNetwork.M2_TEST_NET}).onEventCoinRegisterEvent(async (event, ctx) => {
