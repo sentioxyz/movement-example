@@ -13,6 +13,11 @@ https://docs.sentio.xyz/docs/setup
 yarn sentio upload
 ```
 
+# Add more contract and code gen
+```
+yarn sentio add --chain aptos_m2_testnet 0x<address>
+```
+
 # How to query with API
 https://docs.sentio.xyz/docs/data-api
 
