@@ -1,0 +1,18 @@
+{
+  "name": "@sentio/m2-aptos-example",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "tsc -p .",
+    "test": "sentio test",
+    "build": "sentio build"
+  },
+  "dependencies": {
+    "@sentio/sdk": "^2.40.0"
+  },
+  "devDependencies": {
+    "@sentio/cli": "^2.19.0",
+    "typescript": "^5.2.2"
+  },
+  "type": "module"
+}
