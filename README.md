@@ -13,6 +13,9 @@ https://docs.sentio.xyz/docs/setup
 yarn sentio upload
 ```
 
+# How to query with API
+https://docs.sentio.xyz/docs/data-api
+
 # More data type submission
 - https://docs.sentio.xyz/docs/metrics-in-processors
 - https://docs.sentio.xyz/docs/logs-in-processor
