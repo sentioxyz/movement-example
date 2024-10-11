@@ -17,10 +17,10 @@ stable_pool.bind()
 .onEventRemoveLiquidityEvent(async (event, ctx) => {
     ctx.eventLogger.emit('remove_liquidity', {
       pool: getPoolName("stable", event.type_arguments),
-      ...event.data
+      ...event.data_decoded
     })
   })
 
-account.bind({network: AptosNetwork.M2_TEST_NET}).onEventCoinRegisterEvent(async (event, ctx) => {
+account.bind({network: AptosNetwork.MOVEMENT_TEST_NET}).onEventCoinRegisterEvent(async (event, ctx) => {
   ctx.meter.Counter("coin_register").add(1)
 })
