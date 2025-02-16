@@ -19,10 +19,7 @@ yarn sentio add --chain aptos_m2_testnet 0x<address>
 ```
 
 # How to query with API
-https://docs.sentio.xyz/docs/data-api
+https://docs.sentio.xyz/reference/data
 
 # More data type submission
-- https://docs.sentio.xyz/docs/metrics-in-processors
-- https://docs.sentio.xyz/docs/logs-in-processor
-- https://docs.sentio.xyz/docs/entity-store-in-processors
-
+The example submit  two simple data type, for more complex data type refer: https://docs.sentio.xyz/docs/metrics

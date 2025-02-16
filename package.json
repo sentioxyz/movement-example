@@ -1,5 +1,5 @@
 {
-  "name": "@sentio/m2-aptos-example",
+  "name": "@sentio/movement-test-example",
   "license": "Apache-2.0",
   "version": "1.0.0",
   "scripts": {
@@ -8,10 +8,10 @@
     "build": "sentio build"
   },
   "dependencies": {
-    "@sentio/sdk": "^2.44.0"
+    "@sentio/sdk": "^2.57.7"
   },
   "devDependencies": {
-    "@sentio/cli": "^2.21.0",
+    "@sentio/cli": "^2.25.2",
     "typescript": "^5.5.2"
   },
   "type": "module"

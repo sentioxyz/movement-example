@@ -1,26 +1,17 @@
-import {account, coin, type_info} from "@sentio/sdk/aptos/builtin/0x1";
+import { account } from "@sentio/sdk/aptos/builtin/0x1";
+import { MovementNetwork } from "@sentio/sdk/aptos";
 
-import { stable_pool } from './types/aptos/m2-testnet/0x6b64dd329dc601da9bbd37447e363d06ad59262707c83c1529ab792001982b5b.js'
-import { AptosNetwork } from "@sentio/sdk/aptos";
+import { tradeport_launchpad } from "./types/aptos/movement-testnet/0xe4f1797a3c7f465842231e621ae7156d899e3f75c227257acf42ea12e385b30a.js";
 
-function getPoolName(prefix: string, types: string[]): string {
-  return `${prefix}-${types.join('-')}`
-}
 
-stable_pool.bind()
-  .onEventAddLiquidityEvent(async (event, ctx) => {
-    ctx.eventLogger.emit('add_liquidity', {
-      pool: getPoolName("stable", event.type_arguments),
-      ...event.data_decoded
-    })
+tradeport_launchpad.bind({network: MovementNetwork.TEST_NET}).onEventMintNftEvent(async (event, ctx) => {
+  ctx.eventLogger.emit("mint", {
+    address: event.data_decoded.address,
+    owner: event.data_decoded.owner,
+    price: event.data_decoded.price,
   })
-.onEventRemoveLiquidityEvent(async (event, ctx) => {
-    ctx.eventLogger.emit('remove_liquidity', {
-      pool: getPoolName("stable", event.type_arguments),
-      ...event.data_decoded
-    })
-  })
+})
 
-account.bind({network: AptosNetwork.MOVEMENT_TEST_NET}).onEventCoinRegisterEvent(async (event, ctx) => {
+account.bind({network: MovementNetwork.TEST_NET}).onEventCoinRegisterEvent(async (event, ctx) => {
   ctx.meter.Counter("coin_register").add(1)
 })
