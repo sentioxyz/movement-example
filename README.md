@@ -15,7 +15,7 @@ yarn sentio upload
 
 # Add more contract and code gen
 ```
-yarn sentio add --chain aptos_m2_testnet 0x<address>
+yarn sentio add --chain aptos_movement_testnet 0x<address>
 ```
 
 # How to query with API
